@@ -1,7 +1,5 @@
 package com.maximilianfrick.myappportfolio.movies.list;
 
-import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -22,10 +20,6 @@ public class MoviesActivity extends AppCompatActivity {
     MoviesContract.View moviesView;
     MoviesContract.Presenter moviesPresenter;
 
-    public static Intent newIntent(Activity activity) {
-        return new Intent(activity, MoviesActivity.class);
-    }
-
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,7 +27,7 @@ public class MoviesActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         Injector.getAppComponent().inject(this);
         if (findViewById(R.id.view_movies_detail) != null) {
-            MoviesDetailContract.View detailView = (MoviesDetailContract.View) findViewById(R.id.view_movies_detail);
+            MoviesDetailContract.View detailView = ButterKnife.findById(this, R.id.view_movies_detail);
             moviesPresenter = new MoviesPresenter(moviesView, detailView);
         } else {
             moviesPresenter = new MoviesPresenter(moviesView);

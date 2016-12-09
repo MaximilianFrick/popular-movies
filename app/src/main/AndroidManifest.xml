@@ -11,20 +11,15 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".MainActivity"
-            android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:name=".movies.list.MoviesActivity"
+            android:label="@string/label_movies"
+            android:theme="@style/AppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".movies.list.MoviesActivity"
-            android:label="@string/label_movies"
-            android:parentActivityName=".MainActivity"
-            android:theme="@style/AppTheme" />
         <activity
             android:name=".movies.detail.MoviesDetailActivity"
             android:label="@string/label_movies_detail"
